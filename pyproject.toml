@@ -1,0 +1,28 @@
+[project]
+name = "stream-ingestion"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Roei Baruch",email = "roei.b46@gmail.com"}
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic (==2.14.3)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+[dependency-groups]
+dev = [
+    "pytest (==9.2.0)",
+    "mypy (==2.4.1)",
+    "ruff (==0.17.4)"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
