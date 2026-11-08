@@ -59,6 +59,9 @@ line, not just that it works.
 - **Simple must never mean unsafe** (e.g. don't drop a lock or cleanup to save lines).
 - Sometimes I'll write the code myself: then review it, run it, and tell me what you found.
 - When I ask "what now", give the single next step.
+- **When I ask a question: answer it directly, first, and do nothing else** (no edits, no commands).
+- **Always show the exact code from the file.** Never shorten or "simplify" it in an explanation.
+- **Explain short and plain, but cover every line** — no skipped lines, names or annotations.
 
 ## 4. Secrets
 None expected. If any appear: only in `.env` (git-ignored), never in code or chat.
