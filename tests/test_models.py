@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from models import BatchStats, Event
+from models import BatchStats, Event, Status
 
 T = datetime(2026, 11, 7, 10, 0, tzinfo=UTC)
 
@@ -13,7 +13,7 @@ def make_event(event_id: str = "e1") -> Event:
         event_id=event_id,
         shipment_id="s1",
         occurred_at=T,
-        status="created",
+        status=Status.CREATED,
         tags=("a",),
     )
 
@@ -54,7 +54,7 @@ def test_non_utc_time_is_rejected() -> None:
             event_id="e1",
             shipment_id="s1",
             occurred_at=datetime(2026, 11, 7, 10, 0),
-            status="created",
+            status=Status.CREATED,
             tags=(),
         )
 
@@ -62,7 +62,7 @@ def test_non_utc_time_is_rejected() -> None:
 def test_changing_a_field_fails() -> None:
     event = make_event()
     with pytest.raises(FrozenInstanceError):
-        event.status = "delivered"  # type: ignore[misc]
+        event.status = Status.DELIVERED  # type: ignore[misc]
 
 
 def test_event_has_no_dict_and_rejects_new_attributes() -> None:
